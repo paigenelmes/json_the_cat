@@ -10,7 +10,7 @@ const fetchBreedDescription = function(breedName, callback) {
   const search = URL.concat(breedName);
   //Request function with search input
   request(search, (error, response, body) => {
-    //Print the error if the request failed
+    //If the request failed, return the error via callback
     if (error) {
       callback(`Request failed. Details: ${error}`, null);
     }
@@ -18,10 +18,10 @@ const fetchBreedDescription = function(breedName, callback) {
     const data = JSON.parse(body);
     //Variable for breed
     const breed = data[0];
-    //If breed is found, print description to console
+    //If breed is found, return description via callback
     if (breed) {
       callback(null, breed.description);
-    //If breed is not found, print "not found"
+    //If breed is not found, return "not found" via callback
     } else {
       callback("Sorry, the requested breed was not found. Try again.", null);
     }
