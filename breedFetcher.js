@@ -23,7 +23,7 @@ const fetchBreedDescription = function(breedName, callback) {
       callback(null, breed.description);
     //If breed is not found, print "not found"
     } else {
-      callback(`Sorry, the requested breed ${breedName} was not found. Try again.`, null);
+      callback("Sorry, the requested breed was not found. Try again.", null);
     }
   });
 };
